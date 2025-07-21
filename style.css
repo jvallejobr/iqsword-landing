@@ -1,3 +1,7 @@
+h1, h2, h3, p {
+  margin-top: 0;
+}
+
 /* Base Styles */
 body {
   margin: 0;
@@ -26,11 +30,19 @@ body {
 }
 
 .logo {
+  display: flex;
+  align-items: center;
   font-weight: 700;
   font-size: 1.5rem;
   color: #0057b7;
+  text-decoration: none;
 }
 
+.logo img {
+  height: 36px;       /* ⬅️ Keeps it compact */
+  width: auto;
+  display: block;
+}
 .nav-links a {
   margin-left: 20px;
   text-decoration: none;
@@ -156,19 +168,19 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 40px;
+  gap: 24px;
   flex-wrap: wrap;
 }
 
 .logo-bar img {
-  max-height: 200px;
-  max-width: 300px;
-  width: auto;
   height: auto;
-  flex: 1 1 120px;
+  width: auto;
+  max-height: 150px;         /* ⬅️ Controls height without forcing shrink */
+  max-width: 200px;         /* ⬅️ Optional: upper limit to prevent overflow */
+  flex: 1 1 auto;           /* ⬅️ Allow natural scaling, but stay flexible */
   object-fit: contain;
-  opacity: 0.7;
 }
+
 
 /* Quote Section */
 .quote {
@@ -200,29 +212,59 @@ footer a {
   color: #0057b7;
   text-decoration: none;
 }
-@media (max-width: 300px) {
-  .navbar-container {
-    flex-direction: column;
-    align-items: flex-start;
+@media (max-width: 600px) {
+  .hero {
+    flex-direction: column; /* ⬅️ Stack items vertically */
+    padding: 4px 16px 20px !important;
+    gap: 12px;
   }
 
-  .nav-links {
-    display: flex;
-    flex-direction: column;
-    gap: 12px; /* ✅ esto separa los botones */
-    margin-top: 12px;
+  .hero-content {
+    width: 100%;
+    padding: 0 !important;
+    margin: 0 !important;
   }
 
-  .nav-links a {
-    margin-left: 0;     /* ✅ remueve el margin lateral innecesario en mobile */
-    width: fit-content; /* ✅ evita que se expandan a lo ancho */
+   .hero-content h1 {
+    font-size: clamp(1.8rem, 6vw, 2.4rem); /* ⬅️ Scales between sizes */
+    margin: 0 0 8px 0;
+    line-height: 1.2;
+    font-weight: 700;
   }
 
-  .nav-links .btn,
-  .nav-links .lang-switch {
-    width: max-content;
+  .hero-content p {
+    font-size: 0.95rem;
+    margin: 0 0 12px 0;
   }
+
+  .btn-primary {
+    margin-bottom: 8px;
+    padding: 10px 18px;
+    font-size: 0.9rem;
+    align-self: flex-start;
+  }
+
+  .hero-image {
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+   .logo-bar img {
+    max-height: 1000px;
+    max-width: 140px;
+  }
+
+  .logo-bar {
+    gap: 24px;
+  }
+
 }
+
 
 
 ;
